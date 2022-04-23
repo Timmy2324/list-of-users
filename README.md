@@ -1,5 +1,7 @@
 # Тестовое задание в компанию RooX Solutions
 
+Для удобства приложение размещено [тут](http://Timmy2324.github.io/list-of-users)
+
 Данные пользователей [https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users)
 
 Ссылка на макет [https://www.figma.com/file/X8Ke95Xuc9ZXrZJ3DzQjOW/Тестовое-задание?node-id=2%3A2](https://www.figma.com/file/X8Ke95Xuc9ZXrZJ3DzQjOW/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5?node-id=2%3A2)
