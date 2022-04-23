@@ -1,0 +1,15 @@
+.sidebarWrapper {
+  background: #9d9d9d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+}
+
+.sidebarWrapperItem {
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
