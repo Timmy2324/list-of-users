@@ -5,6 +5,10 @@
   align-items: flex-end;
   border-radius: 10px;
   background: #f6f6f6;
+  margin-bottom: 15px;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .userInfoItem {

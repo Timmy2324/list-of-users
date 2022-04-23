@@ -1,4 +1,4 @@
-import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent} from 'react';
+import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent, memo} from 'react';
 import s from './Input.module.scss'
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
@@ -10,7 +10,7 @@ type InputPropsType = DefaultInputPropsType & {
     titleClassName?: string
 }
 
-export const Input = (props: InputPropsType) => {
+export const Input = memo((props: InputPropsType) => {
 
     const {
         type,
@@ -22,6 +22,7 @@ export const Input = (props: InputPropsType) => {
         error,
         className,
         titleClassName,
+        disabled,
         ...restProps
     } = props;
 
@@ -34,13 +35,14 @@ export const Input = (props: InputPropsType) => {
         onEnter && e.key === 'Enter' && onEnter()
     }
 
-    const finalSpanClassName = `${s.title} ${error ? s.errorInput : ''} ${titleClassName ? titleClassName : ''}`;
+    const finalSpanClassName = `${s.title} ${error ? s.errorTitle : ''} ${titleClassName ? titleClassName : ''}`;
     const finalInputClassName = `${s.input} ${error ? s.errorInput : ''} ${className}`;
 
     return (
-        <div>
+        <div className={`${s.wrapper} ${disabled ? s.disabled : ''}`}>
             <span className={finalSpanClassName}>{title}</span>
             <input
+                disabled={disabled}
                 type={'text'}
                 onChange={onChangeCallback}
                 onKeyPress={onKeyPressCallback}
@@ -49,4 +51,4 @@ export const Input = (props: InputPropsType) => {
             />
         </div>
     );
-};
+});
