@@ -1,21 +1,22 @@
-import React from 'react';
+import React, {memo} from 'react';
 import s from './UserCard.module.scss';
 import {Button} from "../Button/Button";
+import {NavLink} from "react-router-dom";
 
 type UserCardPropsType = {
+    id: number,
     name: string,
     city: string,
     company: string,
-    onClick: () => void,
 }
 
-export const UserCard = (props: UserCardPropsType) => {
+export const UserCard = memo((props: UserCardPropsType) => {
 
     const {
+        id,
         name,
         city,
         company,
-        onClick,
     } = props;
 
     return (
@@ -32,8 +33,10 @@ export const UserCard = (props: UserCardPropsType) => {
                 </div>
             </div>
             <div className={s.buttonMore}>
-                <Button link onClick={onClick}>Подробнее</Button>
+                <NavLink to={`/${id}`}>
+                    <Button link>Подробнее</Button>
+                </NavLink>
             </div>
         </div>
     );
-};
+});

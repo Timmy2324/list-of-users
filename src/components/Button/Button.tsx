@@ -1,4 +1,4 @@
-import React, {ButtonHTMLAttributes, DetailedHTMLProps} from 'react';
+import React, {ButtonHTMLAttributes, DetailedHTMLProps, memo} from 'react';
 import s from './Button.module.scss';
 
 type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
@@ -8,7 +8,7 @@ type ButtonPropsType = DefaultButtonPropsType & {
     link?: boolean
 }
 
-export const Button = (props: ButtonPropsType) => {
+export const Button = memo((props: ButtonPropsType) => {
     const {success, link, className, ...restProps} = props;
 
     const buttonStyle = `${s.btn} ${success ? s.success : s.default} ${link ? s.link : ''} ${className}`
@@ -19,4 +19,4 @@ export const Button = (props: ButtonPropsType) => {
             {...restProps}
         />
     );
-};
+});
