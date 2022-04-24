@@ -31,8 +31,8 @@ export const UserProfileContainer = memo(() => {
             });
     }, []);
 
-    const onClickChangeEditMode = () => {
-        dispatch(changeEditMode(!isEdit));
+    const onClickChangeEditMode = (isEdit: boolean) => {
+        dispatch(changeEditMode(isEdit));
     }
 
     return <UserProfile user={user} isEdit={isEdit} onClickChangeEditMode={onClickChangeEditMode}/>;
