@@ -10,7 +10,7 @@ import {Textarea} from "../Textarea/Textarea";
 type UserProfilePropsType = {
     user: User | undefined,
     isEdit: boolean,
-    onClickChangeEditMode: () => void,
+    onClickChangeEditMode: (isEdit: boolean) => void,
 }
 
 type FormikErrorType = {
@@ -80,7 +80,7 @@ export const UserProfile = memo((props :UserProfilePropsType) => {
     });
 
     const onClickHandler = () => {
-        onClickChangeEditMode();
+        onClickChangeEditMode(!isEdit);
         if (isEdit) {
             formik?.resetForm();
         }
@@ -92,7 +92,7 @@ export const UserProfile = memo((props :UserProfilePropsType) => {
                 <h2>Профиль пользователя</h2>
                 {user && <Button onClick={onClickHandler}>{isEdit ? 'Отмена' : 'Редактировать'}</Button>}
             </div>
-            <NavLink to={`/`}>
+            <NavLink onClick={() => onClickChangeEditMode(false)} to={`/`}>
                 <Button link>К списку пользователей</Button>
             </NavLink>
             {user ?
