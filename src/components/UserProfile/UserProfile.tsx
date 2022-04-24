@@ -5,6 +5,7 @@ import {Input} from "../Input/Input";
 import {Button} from "../Button/Button";
 import {useFormik} from "formik";
 import {NavLink} from "react-router-dom";
+import {Textarea} from "../Textarea/Textarea";
 
 type UserProfilePropsType = {
     user: User | undefined,
@@ -144,7 +145,7 @@ export const UserProfile = memo((props :UserProfilePropsType) => {
                            disabled={!isEdit}
                            error={!!formik?.errors.website}
                     />
-                    <Input title={'Комментарий'}
+                    <Textarea title={'Комментарий'}
                            {...formik?.getFieldProps('comment')}
                            className={s.comment}
                            disabled={!isEdit}
